@@ -13,4 +13,12 @@
         android:text="Button"
         tools:layout_editor_absoluteX="145dp"
         tools:layout_editor_absoluteY="130dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hola"
+        tools:layout_editor_absoluteX="191dp"
+        tools:layout_editor_absoluteY="227dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
