@@ -21,4 +21,13 @@
         android:text="Hola"
         tools:layout_editor_absoluteX="191dp"
         tools:layout_editor_absoluteY="227dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hola bunas"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="303dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
