@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,5 +54,34 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menusuper, menu);
         return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.about:
+                Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
+                startActivity(intent);
+        }
+        switch (item.getItemId()){
+            case R.id.configuration:
+                Intent intent = new Intent(HomeActivity.this, ConfigurationActivity.class);
+                startActivity(intent);
+        }
+        switch (item.getItemId()){
+            case R.id.see_allowances:
+                Intent intent = new Intent(HomeActivity.this, AllowancesActivity.class);
+                startActivity(intent);
+        }
+        switch (item.getItemId()){
+            case R.id.see_expenses:
+                Intent intent = new Intent(HomeActivity.this, ExpensesActivity.class);
+                startActivity(intent);
+        }
+        switch (item.getItemId()){
+            case R.id.my_credit_cards:
+                Intent intent = new Intent(HomeActivity.this, CreditCardsActivity.class);
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
