@@ -8,11 +8,17 @@
     android:orientation="vertical"
     tools:context="com.ciber.retoandroid_asier_iker.LoginActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/logonls"></ImageView>
+
     <EditText
         android:id="@+id/ED_username"
         android:hint="@string/username"
         android:layout_width="190dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/username"
         android:paddingLeft="2dp"/>
