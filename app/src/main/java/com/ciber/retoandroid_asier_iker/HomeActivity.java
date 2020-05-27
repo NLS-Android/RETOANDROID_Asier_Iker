@@ -11,6 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ciber.fragments.AboutFragment;
+import com.ciber.fragments.ConfigurationFragment;
+import com.ciber.fragments.CreditCardFragment;
+import com.ciber.fragments.SeeAllowantesFragment;
+import com.ciber.fragments.SeeExpensesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ciber.fragments.AllowancesFragment;
 import com.ciber.fragments.ExpensesFragment;
@@ -55,6 +59,25 @@ public class HomeActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menusuper, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.about){
+            showSelectedFragment(new AboutFragment());
+        }
+        if (item.getItemId() == R.id.configuration){
+            showSelectedFragment(new ConfigurationFragment());
+        }
+        if (item.getItemId() == R.id.see_allowances){
+            showSelectedFragment(new SeeAllowantesFragment());
+        }
+        if (item.getItemId() == R.id.see_expenses){
+            showSelectedFragment(new SeeExpensesFragment());
+        }
+        if (item.getItemId() == R.id.my_credit_cards){
+            showSelectedFragment(new CreditCardFragment());
+        }
         return true;
     }
 }
