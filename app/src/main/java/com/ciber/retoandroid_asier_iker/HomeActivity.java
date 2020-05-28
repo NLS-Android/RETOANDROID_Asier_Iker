@@ -1,24 +1,24 @@
 package com.ciber.retoandroid_asier_iker;
 
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.ciber.fragments.AboutFragment;
+import com.ciber.fragments.AllowancesFragment;
 import com.ciber.fragments.ConfigurationFragment;
 import com.ciber.fragments.CreditCardFragment;
+import com.ciber.fragments.ExpensesFragment;
+import com.ciber.fragments.ProfileFragment;
 import com.ciber.fragments.SeeAllowantesFragment;
 import com.ciber.fragments.SeeExpensesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.ciber.fragments.AllowancesFragment;
-import com.ciber.fragments.ExpensesFragment;
-import com.ciber.fragments.ProfileFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -77,6 +77,9 @@ public class HomeActivity extends AppCompatActivity {
         }
         if (item.getItemId() == R.id.my_credit_cards){
             showSelectedFragment(new CreditCardFragment());
+        }
+        if (item.getItemId() == R.id.log_out){
+            finish();
         }
         return true;
     }

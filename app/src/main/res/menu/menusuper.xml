@@ -17,6 +17,6 @@
         android:title="My Credit Cards"
         android:id="@+id/my_credit_cards"/>
     <item
-        android:title="Log Out"
-        android:id="@+id/log_out"/>
+        android:id="@+id/log_out"
+        android:title="Log Out" />
 </menu>
