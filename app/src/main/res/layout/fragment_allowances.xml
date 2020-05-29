@@ -1,15 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ciber.fragments.AllowancesFragment">
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context="com.ciber.retoandroid_asier_iker.RegisterActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="AllowancesFragment"
-        android:gravity="center" />
+    <ImageView
+        android:layout_width="76dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/allowances"></ImageView>
+    <EditText
+        android:id="@+id/allowance_name"
+        android:hint="@string/allowance_name"
+        android:layout_width="190dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/allowance_name"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/start_date"
+        android:hint="@string/startdate"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/date"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/end_date"
+        android:hint="@string/enddate"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/date"
+        android:paddingLeft="2dp"/>
+    <Spinner
+        android:id="@+id/location_spinner"
+        android:hint="@string/location"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/location"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/means_transport"
+        android:hint="@string/means_of_transport"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/username"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/travelled_distances"
+        android:hint="@string/travelleddistances"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/travelled_distances"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/toll"
+        android:hint="@string/toll"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/amount"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/parking"
+        android:hint="@string/parking"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/amount"
+        android:paddingLeft="2dp"/>
+    <Button
+        android:id="@+id/add_allowance"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#04ea00"
+        android:text="@string/add_allowance" />
 
-</FrameLayout>
+</LinearLayout>

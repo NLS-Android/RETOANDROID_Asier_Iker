@@ -14,4 +14,23 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="allowance_name">Allowance Name</string>
+    <string name="add_allowance">ADD ALLOWANCE</string>
+    <string name="startdate">Start Date</string>
+    <string name="enddate">End Date</string>
+    <string name="means_of_transport">Means Of Transport</string>
+    <string name="travelleddistances">Travelled Distances</string>
+    <string name="toll">Toll Amount</string>
+    <string name="parking">Parking Amount</string>
+    <string name="location">Location</string>
+    <string name="add_expenses">ADD EXPENSES</string>
+    <string name="expense_name">Expense Name</string>
+    <string name="amount_expense">Amount Expense</string>
+    <string name="reason_expense">Reason For Expense</string>
+    <string name="expensedate">Expense Date</string>
+
+    <string-array name="location">
+        <item>Europe</item>
+        <item>Out Of Europe</item>
+    </string-array>
 </resources>

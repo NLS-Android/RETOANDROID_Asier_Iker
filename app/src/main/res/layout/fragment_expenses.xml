@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ciber.fragments.ExpensesFragment">
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context="com.ciber.retoandroid_asier_iker.RegisterActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ExpensesFragment"
-        android:gravity="center"/>
-</FrameLayout>
+    <ImageView
+        android:layout_width="76dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/expenses"></ImageView>
+    <EditText
+        android:id="@+id/expense_name"
+        android:hint="@string/expense_name"
+        android:layout_width="190dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/allowance_name"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/reason_expense"
+        android:hint="@string/reason_expense"
+        android:layout_width="190dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/allowance_name"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/expense_date"
+        android:hint="@string/expensedate"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/date"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/amount_expense"
+        android:hint="@string/amount_expense"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/amount"
+        android:paddingLeft="2dp"/>
+    <Button
+        android:id="@+id/add_expenses"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#04ea00"
+        android:text="@string/add_expenses" />
+
+</LinearLayout>
