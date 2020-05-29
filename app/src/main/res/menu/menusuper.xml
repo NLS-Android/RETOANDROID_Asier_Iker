@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="About"
-        android:id="@+id/about"/>
+        android:id="@+id/about"
+        android:icon="@drawable/about"
+        android:title="About" />
     <item
         android:title="Configuration"
+        android:icon="@drawable/configuration"
         android:id="@+id/configuration"/>
     <item
         android:title="See Allowances"
+        android:icon="@drawable/seeallowances"
         android:id="@+id/see_allowances"/>
     <item
         android:title="See Expenses"
+        android:icon="@drawable/seeexpenses"
         android:id="@+id/see_expenses"/>
     <item
         android:title="My Credit Cards"
+        android:icon="@drawable/creditcard"
         android:id="@+id/my_credit_cards"/>
     <item
         android:id="@+id/log_out"
+        android:icon="@drawable/logout"
         android:title="Log Out" />
 </menu>
