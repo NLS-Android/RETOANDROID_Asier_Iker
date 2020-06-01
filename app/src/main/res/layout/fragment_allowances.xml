@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="76dp"
         android:layout_height="82dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="55dp"
         app:srcCompat="@drawable/allowances"></ImageView>
     <EditText
         android:id="@+id/allowance_name"
@@ -44,15 +44,17 @@
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/location"
-        android:paddingLeft="2dp"/>
-    <EditText
-        android:id="@+id/means_transport"
+        android:paddingLeft="2dp"
+        android:entries="@array/location"/>
+    <Spinner
+        android:id="@+id/transport_spinner"
         android:hint="@string/means_of_transport"
         android:layout_width="190dp"
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/username"
-        android:paddingLeft="2dp"/>
+        android:paddingLeft="2dp"
+        android:entries="@array/transports"/>
     <EditText
         android:id="@+id/travelled_distances"
         android:hint="@string/travelleddistances"
