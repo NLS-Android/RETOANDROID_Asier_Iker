@@ -1,18 +1,22 @@
 package com.ciber.fragments;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.ciber.fragments.SeeAllowancesFragment;
 import com.ciber.retoandroid_asier_iker.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SeeAllowantesFragment#newInstance} factory method to
+ * Use the {@link SeeAllowancesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SeeAllowantesFragment extends Fragment {
+public class SeeAllowancesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -22,7 +26,7 @@ public class SeeAllowantesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SeeAllowantesFragment() {
+    public SeeAllowancesFragment() {
         // Required empty public constructor
     }
 
@@ -32,11 +36,11 @@ public class SeeAllowantesFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SeeAllowantesFragment.
+     * @return A new instance of fragment SeeAllowancesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SeeAllowantesFragment newInstance(String param1, String param2) {
-        SeeAllowantesFragment fragment = new SeeAllowantesFragment();
+    public static SeeAllowancesFragment newInstance(String param1, String param2) {
+        SeeAllowancesFragment fragment = new SeeAllowancesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,6 +61,6 @@ public class SeeAllowantesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_see_allowantes, container, false);
+        return inflater.inflate(R.layout.fragment_see_allowances, container, false);
     }
 }

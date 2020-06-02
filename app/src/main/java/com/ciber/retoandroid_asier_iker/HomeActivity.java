@@ -16,7 +16,7 @@ import com.ciber.fragments.ConfigurationFragment;
 import com.ciber.fragments.CreditCardFragment;
 import com.ciber.fragments.ExpensesFragment;
 import com.ciber.fragments.ProfileFragment;
-import com.ciber.fragments.SeeAllowantesFragment;
+import com.ciber.fragments.SeeAllowancesFragment;
 import com.ciber.fragments.SeeExpensesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
             showSelectedFragment(new ConfigurationFragment());
         }
         if (item.getItemId() == R.id.see_allowances){
-            showSelectedFragment(new SeeAllowantesFragment());
+            showSelectedFragment(new SeeAllowancesFragment());
         }
         if (item.getItemId() == R.id.see_expenses){
             showSelectedFragment(new SeeExpensesFragment());

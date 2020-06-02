@@ -70,7 +70,8 @@
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/amount"
-        android:paddingLeft="2dp"/>
+        android:paddingLeft="2dp"
+        android:inputType="number"/>
     <EditText
         android:id="@+id/parking"
         android:hint="@string/parking"
@@ -78,7 +79,8 @@
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/amount"
-        android:paddingLeft="2dp"/>
+        android:paddingLeft="2dp"
+        android:inputType="number"/>
     <Button
         android:id="@+id/add_allowance"
         android:layout_width="190dp"
