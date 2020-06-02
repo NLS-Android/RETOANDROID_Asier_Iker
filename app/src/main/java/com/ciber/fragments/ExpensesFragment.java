@@ -19,7 +19,6 @@ public class ExpensesFragment extends Fragment {
     private Button btnAddExpense;
 
     public ExpensesFragment() {
-        // Required empty public constructor
     }
 
     @Override
