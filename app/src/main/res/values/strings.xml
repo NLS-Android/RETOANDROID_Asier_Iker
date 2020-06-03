@@ -30,6 +30,16 @@
     <string name="expensedate">Expense Date</string>
     <string name="expense_code">Code</string>
 
+
+    <!-- CREDITCARD -->
+    <string name="app_namee">CreditCard</string>
+    <string name="banco_test">Banco</string>
+    <string name="vence_test">Vence:</string>
+    <string name="fecha">12/20</string>
+    <string name="numero_cuenta">**** **** **** 0011</string>
+    <string name="btn_text">Escanear Tarjeta</string>
+    <!-- CREDITCARD -->
+
     <string-array name="location">
         <item>Europe</item>
         <item>Out Of Europe</item>

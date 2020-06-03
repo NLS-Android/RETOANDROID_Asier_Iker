@@ -48,7 +48,8 @@
             app:layout_constraintVertical_bias="0.758" />
 
         <Button
-            android:id="@+id/boton_cau"
+            android:id="@+id/boton_call"
+            android:onClick="open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" User Support Center"
