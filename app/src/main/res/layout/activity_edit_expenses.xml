@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ciber.retoandroid_asier_iker.EditExpensesActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="76dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="55dp"
+        app:srcCompat="@drawable/expenses"></ImageView>
+    <EditText
+        android:id="@+id/expense_code_edit"
+        android:hint="@string/expense_code"
+        android:layout_width="190dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/code"
+        android:paddingLeft="2dp"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/expense_name_edit"
+        android:hint="@string/expense_name"
+        android:layout_width="190dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/allowance_name"
+        android:paddingLeft="2dp"/>
+    <EditText
+        android:id="@+id/expense_date_edit"
+        android:hint="@string/expensedate"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/date"
+        android:paddingLeft="2dp"
+        android:inputType="date"/>
+    <EditText
+        android:id="@+id/amount_expense_edit"
+        android:hint="@string/amount_expense"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/amount"
+        android:paddingLeft="2dp"
+        android:inputType="number"/>
+    <Button
+        android:id="@+id/button_expenses_edit"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#04ea00"
+        android:text="@string/edit_expenses"
+        />
+</LinearLayout>
+</RelativeLayout>

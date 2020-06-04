@@ -1,6 +1,8 @@
 package com.ciber.retoandroid_asier_iker;
 
-public class Expense {
+import java.io.Serializable;
+
+public class Expense implements Serializable {
 
     private  int code;
     private String expensename;
