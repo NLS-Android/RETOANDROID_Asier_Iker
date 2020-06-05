@@ -47,7 +47,7 @@
         android:layout_height="40dp"
         android:drawableLeft="@drawable/amount"
         android:paddingLeft="2dp"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
     <Button
         android:id="@+id/button_expenses"
         android:layout_width="190dp"

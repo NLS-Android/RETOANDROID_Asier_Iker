@@ -9,12 +9,21 @@
     tools:context="com.ciber.retoandroid_asier_iker.RegisterActivity">
 
     <ImageView
-        android:layout_width="76dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="55dp"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         app:srcCompat="@drawable/allowances"></ImageView>
     <EditText
-        android:id="@+id/allowance_name"
+        android:id="@+id/txtAllowanceCode"
+        android:hint="@string/expense_code"
+        android:layout_width="190dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/code"
+        android:paddingLeft="2dp"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/txtAllowanceName"
         android:hint="@string/allowance_name"
         android:layout_width="190dp"
         android:layout_marginTop="5dp"
@@ -22,23 +31,25 @@
         android:drawableLeft="@drawable/allowance_name"
         android:paddingLeft="2dp"/>
     <EditText
-        android:id="@+id/start_date"
+        android:id="@+id/txtAllowanceStartDate"
         android:hint="@string/startdate"
         android:layout_width="190dp"
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/date"
-        android:paddingLeft="2dp"/>
+        android:paddingLeft="2dp"
+        android:inputType="date"/>
     <EditText
-        android:id="@+id/end_date"
+        android:id="@+id/txtAllowanceEndDate"
         android:hint="@string/enddate"
         android:layout_width="190dp"
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/date"
-        android:paddingLeft="2dp"/>
+        android:paddingLeft="2dp"
+        android:inputType="date"/>
     <Spinner
-        android:id="@+id/location_spinner"
+        android:id="@+id/spinnerLocation"
         android:hint="@string/location"
         android:layout_width="190dp"
         android:layout_marginTop="10dp"
@@ -47,7 +58,7 @@
         android:paddingLeft="2dp"
         android:entries="@array/location"/>
     <Spinner
-        android:id="@+id/transport_spinner"
+        android:id="@+id/spinnerTransport"
         android:hint="@string/means_of_transport"
         android:layout_width="190dp"
         android:layout_marginTop="10dp"
@@ -56,7 +67,7 @@
         android:paddingLeft="2dp"
         android:entries="@array/transports"/>
     <EditText
-        android:id="@+id/travelled_distances"
+        android:id="@+id/txtTravelledDistances"
         android:hint="@string/travelleddistances"
         android:layout_width="190dp"
         android:layout_marginTop="10dp"
@@ -64,28 +75,28 @@
         android:drawableLeft="@drawable/travelled_distances"
         android:paddingLeft="2dp"/>
     <EditText
-        android:id="@+id/toll"
+        android:id="@+id/txtTollAmount"
         android:hint="@string/toll"
         android:layout_width="190dp"
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/amount"
         android:paddingLeft="2dp"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
     <EditText
-        android:id="@+id/parking"
+        android:id="@+id/txtParkingAmount"
         android:hint="@string/parking"
         android:layout_width="190dp"
         android:layout_marginTop="10dp"
         android:layout_height="40dp"
         android:drawableLeft="@drawable/amount"
         android:paddingLeft="2dp"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
     <Button
-        android:id="@+id/add_allowance"
+        android:id="@+id/btnAddAllowance"
         android:layout_width="190dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="#04ea00"
         android:text="@string/add_allowance" />
 

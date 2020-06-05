@@ -1,21 +1,13 @@
 package com.ciber.fragments;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.ciber.fragments.SeeAllowancesFragment;
 import com.ciber.retoandroid_asier_iker.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SeeAllowancesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SeeAllowancesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
