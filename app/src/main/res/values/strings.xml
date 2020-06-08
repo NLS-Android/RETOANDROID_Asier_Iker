@@ -39,6 +39,7 @@
     <string name="numero_cuenta">**** **** **** 0011</string>
     <string name="btn_text">Escanear Tarjeta</string>
     <string name="edit_expenses">EDIT EXPENSE</string>
+    <string name="edit_allowance">EDIT ALLOWANCE</string>
     <!-- CREDITCARD -->
 
     <string-array name="location">

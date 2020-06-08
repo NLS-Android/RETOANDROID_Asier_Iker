@@ -37,7 +37,7 @@ public class EditExpensesActivity extends AppCompatActivity {
             }
         });
         FillData();
-        expense=(Expense)getIntent().getSerializableExtra("expense");
+        expense=(Expense)getIntent().getSerializableExtra("expenses");
     }
 
     private void FillData(){
@@ -49,7 +49,7 @@ public class EditExpensesActivity extends AppCompatActivity {
     }
 
     private void EditData(View v) {
-        SQLLite sqlLite = new SQLLite(this,"espense",null,1);
+        SQLLite sqlLite = new SQLLite(this,"expenses",null,1);
         SQLiteDatabase sqLiteDatabase = sqlLite.getWritableDatabase();
         Integer code = Integer.parseInt(expense_code_edit.getText().toString());
         String expense_name = expense_name_edit.getText().toString();

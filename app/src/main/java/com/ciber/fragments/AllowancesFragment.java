@@ -61,22 +61,22 @@ public class AllowancesFragment extends Fragment {
         String allowancename = txtAllowanceName.getText().toString();
         String allowancestartdate = txtAllowanceStartDate.getText().toString();
         String allowanceenddate = txtAllowanceEndDate.getText().toString();
-        String spinnerlocation = spinnerLocation.getSelectedItem().toString();
-        String spinnertransport = spinnerTransport.getSelectedItem().toString();
-        String allowancetravelled = txtTravelledDistances.getText().toString();
-        String tollamount = txtTollAmount.getText().toString();
-        String parkingamount = txtParkingAmount.getText().toString();
+        String allowancelocation = spinnerLocation.getSelectedItem().toString();
+        String allowancetransport = spinnerTransport.getSelectedItem().toString();
+        String allowancetravelleddistances = txtTravelledDistances.getText().toString();
+        String allowancetollamount = txtTollAmount.getText().toString();
+        String allowanceparkingamount = txtParkingAmount.getText().toString();
 
         ContentValues values = new ContentValues();
         values.put("code", code);
         values.put("allowancename",allowancename);
         values.put("allowancestartdate",allowancestartdate);
         values.put("allowanceenddate",allowanceenddate);
-        values.put("spinnerlocation",spinnerlocation);
-        values.put("spinnertransport",spinnertransport);
-        values.put("allowancetravelled",allowancetravelled);
-        values.put("tollamount",tollamount);
-        values.put("parkingamount",parkingamount);
+        values.put("allowancelocation",allowancelocation);
+        values.put("allowancetransport",allowancetransport);
+        values.put("allowancetravelleddistances",allowancetravelleddistances);
+        values.put("allowancetollamount",allowancetollamount);
+        values.put("allowanceparkingamount",allowanceparkingamount);
 
         Long result = sqLiteDatabase.insert("allowances", null, values);
         Toast.makeText(getActivity(), "Result: " + result, Toast.LENGTH_SHORT).show();

@@ -69,7 +69,7 @@ public class SeeExpensesFragment extends Fragment implements OPExpense {
     @Override
     public void OptionEdit(Expense expense) {
         Intent intent = new Intent(getActivity(), EditExpensesActivity.class);
-        intent.putExtra("expense", expense);
+        intent.putExtra("expenses", expense);
         startActivity(intent);
     }
 

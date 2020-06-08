@@ -1,58 +1,108 @@
 package com.ciber.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import com.ciber.fragments.SeeAllowancesFragment;
+import com.ciber.retoandroid_asier_iker.Allowance;
+import com.ciber.retoandroid_asier_iker.AllowanceAdapter;
+import com.ciber.retoandroid_asier_iker.EditAllowanceActivity;
+import com.ciber.retoandroid_asier_iker.OPAllowances;
 import com.ciber.retoandroid_asier_iker.R;
+import com.ciber.retoandroid_asier_iker.SQLLite;
+import java.util.ArrayList;
 
-public class SeeAllowancesFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class SeeAllowancesFragment extends Fragment implements OPAllowances {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    RecyclerView idrecyclerviewAllowance;
+    ArrayList<Allowance> allowanceArrayList;
+    SQLLite sqlLite;
+    private AllowanceAdapter allowanceAdapter;
 
     public SeeAllowancesFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SeeAllowancesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SeeAllowancesFragment newInstance(String param1, String param2) {
-        SeeAllowancesFragment fragment = new SeeAllowancesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_see_allowances, container, false);
+        idrecyclerviewAllowance = v.findViewById(R.id.idrecyclerviewAllowance);
+        allowanceArrayList = new ArrayList<>();
+        sqlLite = new SQLLite(getActivity(),"allowances",null,1);
+        allowanceAdapter = new AllowanceAdapter(this, allowanceArrayList);
+        RecyclerView recyclerView= v.findViewById(R.id.idrecyclerviewAllowance);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+        recyclerView.setAdapter(allowanceAdapter);
+        showAllowances();
+        return v;
+    }
+
+    public void showAllowances() {
+        SQLiteDatabase sqLiteDatabase = sqlLite.getReadableDatabase();
+        Allowance allowance = null;
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM allowances", null);
+        while (cursor.moveToNext()) {
+            allowance = new Allowance();
+            allowance.setCode(cursor.getInt(0));
+            allowance.setAllowancename(cursor.getString(1));
+            allowance.setAllowancestartdate(cursor.getString(2));
+            allowance.setAllowanceenddate(cursor.getString(3));
+            allowance.setAllowancelocation(cursor.getString(4));
+            allowance.setAllowancetransport(cursor.getString(5));
+            allowance.setAllowancetravelleddistances(cursor.getString(6));
+            allowance.setAllowancetollamount(cursor.getString(7));
+            allowance.setAllowanceparkingamount(cursor.getString(8));
+            allowanceAdapter.addAllowance(allowance);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_see_allowances, container, false);
+    public void OptionEditAllowance(Allowance allowance) {
+        Intent intent = new Intent(getActivity(), EditAllowanceActivity.class);
+        intent.putExtra("allowances", allowance);
+        startActivity(intent);
+    }
+
+    @Override
+    public void OptionDeleteAllowance(final Allowance allowance) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Message");
+        alert.setMessage("");
+        alert.setMessage("Are you sure you want to delete "+ allowance.getAllowancename()+" ?" );
+        alert.setCancelable(false);
+        alert.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteAllowance(allowance);
+            }
+        });
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        alert.show();
+    }
+    private void deleteAllowance(Allowance allowance) {
+        SQLLite sqlLite = new SQLLite(getActivity(),"allowances", null, 1);
+        SQLiteDatabase sqLiteDatabase = sqlLite.getWritableDatabase();
+        String code = String.valueOf(allowance.getCode());
+        if(!code.isEmpty()){
+            sqLiteDatabase.delete("allowances","code="+code,null);
+            Toast.makeText(getActivity(), "Correctly Removed", Toast.LENGTH_SHORT).show();
+            allowanceAdapter.deleteAllowance(allowance);
+            sqLiteDatabase.close();
+        }else{
+            Toast.makeText(getActivity(), "It could not be removed", Toast.LENGTH_SHORT).show();
+        }
     }
 }
