@@ -47,10 +47,9 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/boton_call"
+            android:id="@+id/btn_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="open"
             android:text=" User Support Center"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
