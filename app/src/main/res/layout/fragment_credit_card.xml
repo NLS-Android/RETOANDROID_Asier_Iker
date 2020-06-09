@@ -6,8 +6,6 @@
     tools:context="com.ciber.fragments.CreditCardFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -47,10 +45,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.813"
                     app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
-                    tools:layout_editor_absoluteY="2dp"></androidx.appcompat.widget.AppCompatImageView>
+                    tools:layout_editor_absoluteY="2dp"
+                    tools:ignore="MissingConstraints"></androidx.appcompat.widget.AppCompatImageView>
 
                 <TextView
-                    android:id="@+id/textViewTarjeta"
+                    android:id="@+id/textViewCard"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,12 +85,13 @@
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/textViewFecha"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewDate"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/textView"></TextView>
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    tools:ignore="UnknownId"></TextView>
 
                 <TextView
-                    android:id="@+id/textViewFecha"
+                    android:id="@+id/textViewDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="33dp"
@@ -110,7 +110,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_scan"
             android:layout_width="250dp"
             android:layout_height="45dp"
             android:background="@color/colorPrimary"

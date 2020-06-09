@@ -1,62 +1,65 @@
 package com.ciber.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import com.ciber.retoandroid_asier_iker.R;
+import io.card.payment.CardIOActivity;
+import io.card.payment.CreditCard;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CreditCardFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CreditCardFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private static final int SCAN_RESULT = 13274384;
+    private static final int MY_SCAN_REQUEST_CODE = 100;
+    private TextView textViewCard, textViewDate;
+    private Button button_scan;
+    private Object View;
 
     public CreditCardFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CreditCardFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CreditCardFragment newInstance(String param1, String param2) {
-        CreditCardFragment fragment = new CreditCardFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_credit_card, container, false);
+        textViewCard = (TextView) v.findViewById(R.id.textViewCard);
+        textViewDate = (TextView) v.findViewById(R.id.textViewDate);
+        scanCard(v);
+        return v;
     }
 
+    public void scanCard(View v) {
+        Intent scanIntent = new Intent(getActivity(), CardIOActivity.class);
+
+        // customize these values to suit your needs.
+        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true); // default: false
+        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CVV, false); // default: false
+        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_POSTAL_CODE, false); // default: false
+
+        // MY_SCAN_REQUEST_CODE is arbitrary and is only used within this activity.
+        startActivityForResult(scanIntent, MY_SCAN_REQUEST_CODE);
+    }
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult ( requestCode, resultCode, data );
+
+        if (resultCode == SCAN_RESULT){
+            if (data != null && data.hasExtra (CardIOActivity.EXTRA_SCAN_RESULT)){
+                CreditCard scanResult = data.getParcelableExtra (CardIOActivity.EXTRA_SCAN_RESULT);
+                textViewCard.setText (scanResult.getFormattedCardNumber ());
+                if (scanResult.isExpiryValid ()){
+                    String mes = String.valueOf (scanResult.expiryMonth);
+                    String an = String.valueOf (scanResult.expiryYear);
+                    textViewDate.setText (mes + "/" + an);
+
+                }
+            }
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credit_card, container, false);
     }
 }

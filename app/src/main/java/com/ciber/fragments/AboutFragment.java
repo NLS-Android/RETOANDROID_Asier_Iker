@@ -41,8 +41,7 @@ public class AboutFragment extends Fragment {
     public void open(){
         try
         {
-            if(Build.VERSION.SDK_INT > 22)
-            {
+            if(Build.VERSION.SDK_INT > 22) {
                 if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE}, 101);
                     return;

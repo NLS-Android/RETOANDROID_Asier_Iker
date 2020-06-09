@@ -33,8 +33,8 @@
 
     <!-- CREDITCARD -->
     <string name="app_namee">CreditCard</string>
-    <string name="banco_test">Banco</string>
-    <string name="vence_test">Vence:</string>
+    <string name="banco_test">Bank</string>
+    <string name="vence_test">Expires:</string>
     <string name="fecha">12/20</string>
     <string name="numero_cuenta">**** **** **** 0011</string>
     <string name="btn_text">Escanear Tarjeta</string>
