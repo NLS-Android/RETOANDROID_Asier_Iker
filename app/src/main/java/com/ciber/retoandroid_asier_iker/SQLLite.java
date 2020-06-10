@@ -14,7 +14,7 @@ public class SQLLite extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE IF NOT EXISTS expenses(code 'int', expensename 'varchar',expensedate 'varchar', expenseamount 'varchar')");
         db.execSQL("CREATE TABLE IF NOT EXISTS allowances(code 'int', allowancename 'varchar',allowancestartdate 'varchar', allowanceenddate 'varchar', allowancelocation 'varchar', " +
                 "allowancetransport 'varchar', allowancetravelleddistances 'varchar', allowancetollamount 'varchar', allowanceparkingamount 'varchar')");
-
+        
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

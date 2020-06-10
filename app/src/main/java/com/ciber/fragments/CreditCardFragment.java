@@ -31,6 +31,7 @@ public class CreditCardFragment extends Fragment {
         textViewCard = (TextView) v.findViewById(R.id.textViewCard);
         textViewDate = (TextView) v.findViewById(R.id.textViewDate);
         scanCard(v);
+
         return v;
     }
 

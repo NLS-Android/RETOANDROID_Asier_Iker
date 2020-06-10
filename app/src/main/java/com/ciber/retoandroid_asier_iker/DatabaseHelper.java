@@ -23,7 +23,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE users (ID INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, surname TEXT, idcard INT, username TEXT, password TEXT)");
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS expenses(code INTEGER PRIMARY KEY AUTOINCREMENT, expense_name TEXT,expense_date TEXT, amount_expense TEXT)");
     }
 
     @Override
