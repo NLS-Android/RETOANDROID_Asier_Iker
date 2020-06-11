@@ -1,7 +1,6 @@
 package com.ciber.retoandroid_asier_iker;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.ciber.retoandroid_asier_iker.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -47,13 +45,16 @@ public class LoginActivity extends AppCompatActivity {
                 if (result == true) {
                     Intent HomePage = new Intent(LoginActivity.this, HomeActivity.class);
                     Toast.makeText(LoginActivity.this, "Succesfully Logged-In", Toast.LENGTH_SHORT).show();
+                    /***/
+                    Bundle bundle = new Bundle();
+                    bundle.putString("user",username.getText().toString().trim());
+                    HomePage.putExtras(bundle);
+                    /***/
                     startActivity(HomePage);
                 } else {
                     Toast.makeText(LoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
     }
 }
