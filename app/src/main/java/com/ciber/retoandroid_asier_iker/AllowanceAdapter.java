@@ -1,5 +1,6 @@
 package com.ciber.retoandroid_asier_iker;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ public class AllowanceAdapter extends RecyclerView.Adapter<AllowanceAdapter.allo
     @Override
     public allowanceView onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_show,viewGroup,false);
+
         return new allowanceView(view);
     }
 
@@ -43,6 +45,7 @@ public class AllowanceAdapter extends RecyclerView.Adapter<AllowanceAdapter.allo
         allowanceView.txtTravelledAllowance.setText(allowance.getAllowancetravelleddistances());
         allowanceView.txtTollAllowance.setText(allowance.getAllowancetollamount());
         allowanceView.txtParkingAllowance.setText(allowance.getAllowanceparkingamount());
+        allowanceView.txtTotalPrice.setText(allowance.getTotalprice());
         allowanceView.btnEditAllowance.setOnClickListener(new AllowanceAdapter.EditEvent(allowance));
         allowanceView.btnDeleteAllowance.setOnClickListener(new AllowanceAdapter.DeleteEvent(allowance));
 
@@ -87,7 +90,7 @@ public class AllowanceAdapter extends RecyclerView.Adapter<AllowanceAdapter.allo
 
     public class allowanceView extends RecyclerView.ViewHolder {
 
-        private TextView txtCodeAllowanceShow, txtExpenseNameAllowance, txtStartDateAllowance, txtEndDateAllowance, txtLocationAllowance, txtTransportAllowance, txtTravelledAllowance, txtTollAllowance, txtParkingAllowance;
+        private TextView txtCodeAllowanceShow, txtExpenseNameAllowance, txtStartDateAllowance, txtEndDateAllowance, txtLocationAllowance, txtTransportAllowance, txtTravelledAllowance, txtTollAllowance, txtParkingAllowance, txtTotalPrice;
         private Button btnEditAllowance, btnDeleteAllowance;
 
         public allowanceView(View itemView) {
@@ -101,9 +104,9 @@ public class AllowanceAdapter extends RecyclerView.Adapter<AllowanceAdapter.allo
             txtTravelledAllowance = itemView.findViewById(R.id.txtTravelledAllowance);
             txtTollAllowance = itemView.findViewById(R.id.txtTollAllowance);
             txtParkingAllowance = itemView.findViewById(R.id.txtParkingAllowance);
+            txtTotalPrice = itemView.findViewById(R.id.txtTotalPrice);
             btnEditAllowance = itemView.findViewById(R.id.btnEditAllowance);
             btnDeleteAllowance = itemView.findViewById(R.id.btnDeleteAllowance);
-
         }
     }
 }

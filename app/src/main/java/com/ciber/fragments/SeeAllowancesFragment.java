@@ -1,5 +1,6 @@
 package com.ciber.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.ciber.fragments.SeeAllowancesFragment;
 import com.ciber.retoandroid_asier_iker.Allowance;
@@ -32,6 +34,7 @@ public class SeeAllowancesFragment extends Fragment implements OPAllowances {
     public SeeAllowancesFragment() {
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_see_allowances, container, false);
@@ -49,7 +52,16 @@ public class SeeAllowancesFragment extends Fragment implements OPAllowances {
     public void showAllowances() {
         SQLiteDatabase sqLiteDatabase = sqlLite.getReadableDatabase();
         Allowance allowance = null;
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM allowances", null);
+        /***/
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT code, allowancename, allowancestartdate, allowanceenddate, allowancelocation, allowancetransport, allowancetravelleddistances, " +
+                "allowancetollamount, allowanceparkingamount, " +
+                "CASE " +
+                "WHEN allowancelocation = 'Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3) + (60 * (strftime('%d',allowanceenddate) - strftime('%d',allowancestartdate)))  " +
+                "WHEN allowancelocation = 'Out Of Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3) + (100 * (strftime('%d',allowanceenddate) - strftime('%d',allowancestartdate))) " +
+                "ELSE 0 " +
+                "END " +
+                "FROM allowances", null);
+        /***/
         while (cursor.moveToNext()) {
             allowance = new Allowance();
             allowance.setCode(cursor.getInt(0));
@@ -61,6 +73,7 @@ public class SeeAllowancesFragment extends Fragment implements OPAllowances {
             allowance.setAllowancetravelleddistances(cursor.getString(6));
             allowance.setAllowancetollamount(cursor.getString(7));
             allowance.setAllowanceparkingamount(cursor.getString(8));
+            allowance.setTotalprice(cursor.getString(9));
             allowanceAdapter.addAllowance(allowance);
         }
     }

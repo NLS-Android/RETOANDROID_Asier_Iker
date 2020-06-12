@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,9 @@ import com.ciber.retoandroid_asier_iker.DatabaseHelper;
 import com.ciber.retoandroid_asier_iker.LoginActivity;
 import com.ciber.retoandroid_asier_iker.R;
 import com.ciber.retoandroid_asier_iker.SQLLite;
-
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,7 +24,6 @@ import java.util.Date;
 
 public class ProfileFragment extends Fragment {
 
-    /***/
     TextView name, surname, idcard, username,username2;
     DatabaseHelper databaseHelper;
     Cursor cursor;
@@ -39,10 +35,7 @@ public class ProfileFragment extends Fragment {
         if (getArguments() != null){
             user_score = getArguments().getString("score");
         }
-
     }
-    /***/
-
 
     public ProfileFragment() {
     }

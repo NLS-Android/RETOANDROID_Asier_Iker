@@ -13,11 +13,12 @@ public class Allowance implements Serializable {
     private String allowancetravelleddistances;
     private String allowancetollamount;
     private String allowanceparkingamount;
+    private String totalprice;
 
     public Allowance() {
     }
 
-    public Allowance(int code, String allowancename, String allowancestartdate, String allowanceenddate, String allowancelocation, String allowancetransport, String allowancetravelleddistances, String allowancetollamount, String allowanceparkingamount) {
+    public Allowance(int code, String allowancename, String allowancestartdate, String allowanceenddate, String allowancelocation, String allowancetransport, String allowancetravelleddistances, String allowancetollamount, String allowanceparkingamount,String totalprice) {
         this.code = code;
         this.allowancename = allowancename;
         this.allowancestartdate = allowancestartdate;
@@ -27,6 +28,7 @@ public class Allowance implements Serializable {
         this.allowancetravelleddistances = allowancetravelleddistances;
         this.allowancetollamount = allowancetollamount;
         this.allowanceparkingamount = allowanceparkingamount;
+        this.totalprice = totalprice;
     }
 
     public int getCode() {
@@ -39,9 +41,7 @@ public class Allowance implements Serializable {
     public String getAllowancename() {
         return allowancename;
     }
-    public void setAllowancename(String allowancename) {
-        this.allowancename = allowancename;
-    }
+    public void setAllowancename(String allowancename) { this.allowancename = allowancename; }
 
     public String getAllowancestartdate() {
         return allowancestartdate;
@@ -77,4 +77,9 @@ public class Allowance implements Serializable {
         return allowanceparkingamount;
     }
     public void setAllowanceparkingamount(String allowanceparkingamount) { this.allowanceparkingamount = allowanceparkingamount; }
+
+    public String getTotalprice() {
+        return totalprice;
+    }
+    public void setTotalprice(String totalprice) { this.totalprice = totalprice; }
 }
