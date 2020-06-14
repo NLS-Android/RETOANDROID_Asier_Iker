@@ -1,14 +1,22 @@
 package com.ciber.retoandroid_asier_iker;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.ciber.retoandroid_asier_iker.R;
+import java.io.InputStream;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -20,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText confirm_password;
     TextView login;
     Button register;
+    ImageButton pickImg;
     DatabaseHelper db;
 
     @Override
@@ -34,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.ED_username);
         password = (EditText) findViewById(R.id.ED_password);
         confirm_password = (EditText) findViewById(R.id.ED_confirm_password);
+        pickImg = (ImageButton) findViewById(R.id.pickimg);
         login = (TextView) findViewById(R.id.TV_login);
         register = (Button) findViewById(R.id.button_register);
 
@@ -73,5 +83,25 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void openGallery(View view) {
+        Intent interntIMG = new Intent(Intent.ACTION_GET_CONTENT);
+        interntIMG.setType("image/*");
+        startActivityForResult(interntIMG,100);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode == 100){
+            Uri uri = data.getData();
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+                Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
+                pickImg.setImageBitmap(decodeStream);
+            }catch (Exception ex){
+                Log.e("ex", ex.getMessage());
+            }
+        }
     }
 }

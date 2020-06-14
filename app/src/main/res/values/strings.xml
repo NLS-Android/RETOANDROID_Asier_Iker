@@ -40,6 +40,7 @@
     <string name="btn_text">Escanear Tarjeta</string>
     <string name="edit_expenses">EDIT EXPENSE</string>
     <string name="edit_allowance">EDIT ALLOWANCE</string>
+    <string name="button_add_image">ADD IMAGE</string>
     <!-- CREDITCARD -->
 
     <string-array name="location">

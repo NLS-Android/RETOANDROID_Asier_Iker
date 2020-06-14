@@ -10,9 +10,17 @@
     tools:context="com.ciber.retoandroid_asier_iker.RegisterActivity">
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="160dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="10dp"
         app:srcCompat="@drawable/logonls"></ImageView>
+    <ImageButton
+        android:id="@+id/pickimg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/avatar"
+        android:scaleType="fitCenter"
+        android:onClick="openGallery"></ImageButton>
     <EditText
         android:id="@+id/ED_name"
         android:hint="@string/name"
