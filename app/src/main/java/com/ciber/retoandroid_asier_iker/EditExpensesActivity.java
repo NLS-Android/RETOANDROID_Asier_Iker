@@ -2,16 +2,20 @@ package com.ciber.retoandroid_asier_iker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ciber.fragments.SeeExpensesFragment;
+
+import java.util.Calendar;
 
 public class EditExpensesActivity extends AppCompatActivity {
 
@@ -36,8 +40,25 @@ public class EditExpensesActivity extends AppCompatActivity {
                 EditData(v);
             }
         });
-        FillData();
         expense=(Expense)getIntent().getSerializableExtra("expenses");
+        FillData();
+        expense_date_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                int yy = calendar.get(Calendar.YEAR);
+                int mm = calendar.get(Calendar.MONTH);
+                int dd = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePicker = new DatePickerDialog(EditExpensesActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String date = String.valueOf(year) +"-"+String.valueOf(monthOfYear) +"-"+String.valueOf(dayOfMonth);
+                        expense_date_edit.setText(date);
+                    }
+                }, yy, mm, dd);
+                datePicker.show();
+            }
+        });
     }
 
     private void FillData(){
@@ -58,15 +79,15 @@ public class EditExpensesActivity extends AppCompatActivity {
 
         ContentValues values = new ContentValues();
         values.put("code", code);
-        values.put("expense_name", expense_name);
-        values.put("expense_date", expense_date);
-        values.put("expense_amount", expense_amount);
+        values.put("expensename", expense_name);
+        values.put("expensedate", expense_date);
+        values.put("expenseamount", expense_amount);
 
         sqLiteDatabase.update("expenses", values, "code="+code,null);
         sqLiteDatabase.close();
 
         Toast.makeText(this, "Data Edited",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(EditExpensesActivity.this, SeeExpensesFragment.class);
+        Intent intent = new Intent(EditExpensesActivity.this, HomeActivity.class);
         startActivity(intent);
     }
 }

@@ -1,17 +1,22 @@
 package com.ciber.retoandroid_asier_iker;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.ciber.fragments.SeeAllowancesFragment;
 import com.ciber.fragments.SeeExpensesFragment;
+
+import java.util.Calendar;
 
 public class EditAllowanceActivity extends AppCompatActivity {
 
@@ -35,7 +40,7 @@ public class EditAllowanceActivity extends AppCompatActivity {
         txt_Travelled_Distances = findViewById(R.id.txt_Travelled_Distances);
         txt_Toll_Amount = findViewById(R.id.txt_Toll_Amount);
         txt_Parking_Amount = findViewById(R.id.txt_Parking_Amount);
-
+        button_allowances_edit = findViewById(R.id.button_allowances_edit);
         button_allowances_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +49,40 @@ public class EditAllowanceActivity extends AppCompatActivity {
         });
         allowance=(Allowance) getIntent().getSerializableExtra("allowances");
         FillData();
+        txt_Allowance_Start_Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                int yy = calendar.get(Calendar.YEAR);
+                int mm = calendar.get(Calendar.MONTH);
+                int dd = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePicker = new DatePickerDialog(EditAllowanceActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String date = String.valueOf(year) +"-"+String.valueOf(monthOfYear) +"-"+String.valueOf(dayOfMonth);
+                        txt_Allowance_Start_Date.setText(date);
+                    }
+                }, yy, mm, dd);
+                datePicker.show();
+            }
+        });
+        txt_Allowance_End_Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                int yy = calendar.get(Calendar.YEAR);
+                int mm = calendar.get(Calendar.MONTH);
+                int dd = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePicker = new DatePickerDialog(EditAllowanceActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String date = String.valueOf(year) +"-"+String.valueOf(monthOfYear) +"-"+String.valueOf(dayOfMonth);
+                        txt_Allowance_End_Date.setText(date);
+                    }
+                }, yy, mm, dd);
+                datePicker.show();
+            }
+        });
     }
 
     private void FillData(){
@@ -87,7 +126,7 @@ public class EditAllowanceActivity extends AppCompatActivity {
         sqLiteDatabase.close();
 
         Toast.makeText(this, "Data Edited",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(EditAllowanceActivity.this, SeeAllowancesFragment.class);
+        Intent intent = new Intent(EditAllowanceActivity.this, HomeActivity.class);
         startActivity(intent);
     }
 }
