@@ -1,5 +1,6 @@
 package com.ciber.fragments;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -8,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Toast;
 import com.ciber.retoandroid_asier_iker.R;
 import com.ciber.retoandroid_asier_iker.SQLLite;
 import android.widget.EditText;
+import java.util.Calendar;
 
 public class ExpensesFragment extends Fragment {
 
@@ -39,6 +42,23 @@ public class ExpensesFragment extends Fragment {
                     CleanText();
                     Toast.makeText(getActivity(), "Expense Added", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        txtExpenseDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                int yy = calendar.get(Calendar.YEAR);
+                int mm = calendar.get(Calendar.MONTH);
+                int dd = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String date = String.valueOf(year) +"-"+String.valueOf(monthOfYear) +"-"+String.valueOf(dayOfMonth);
+                        txtExpenseDate.setText(date);
+                    }
+                }, yy, mm, dd);
+                datePicker.show();
             }
         });
         return v;

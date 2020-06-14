@@ -56,11 +56,11 @@ public class SeeAllowancesFragment extends Fragment implements OPAllowances {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT code, allowancename, allowancestartdate, allowanceenddate, allowancelocation, allowancetransport, allowancetravelleddistances, " +
                 "allowancetollamount, allowanceparkingamount, " +
                 "CASE " +
-                "WHEN allowancelocation = 'Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3) + (60 * (strftime('%d',allowanceenddate) - strftime('%d',allowancestartdate)))  " +
-                "WHEN allowancelocation = 'Out Of Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3) + (100 * (strftime('%d',allowanceenddate) - strftime('%d',allowancestartdate))) " +
+                "WHEN allowancelocation = 'Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3) + ((allowanceenddate-allowancestartdate)*60) " +
+                "WHEN allowancelocation = 'Out Of Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3) + ((allowanceenddate-allowancestartdate)*100)  " +
                 "ELSE 0 " +
                 "END " +
-                "FROM allowances", null);
+                "FROM allowances",null);
         /***/
         while (cursor.moveToNext()) {
             allowance = new Allowance();
