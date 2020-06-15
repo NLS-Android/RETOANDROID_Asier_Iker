@@ -125,8 +125,7 @@ public class EditAllowanceActivity extends AppCompatActivity {
         sqLiteDatabase.update("allowances", values, "code="+code,null);
         sqLiteDatabase.close();
 
-        Toast.makeText(this, "Data Edited",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(EditAllowanceActivity.this, HomeActivity.class);
-        startActivity(intent);
+        Toast.makeText(this, "Data Edited, refresh this page to see the changes",Toast.LENGTH_SHORT).show();
+        onBackPressed();
     }
 }

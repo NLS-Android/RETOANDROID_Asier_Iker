@@ -86,8 +86,7 @@ public class EditExpensesActivity extends AppCompatActivity {
         sqLiteDatabase.update("expenses", values, "code="+code,null);
         sqLiteDatabase.close();
 
-        Toast.makeText(this, "Data Edited",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(EditExpensesActivity.this, HomeActivity.class);
-        startActivity(intent);
+        Toast.makeText(this, "Data Edited, refresh this page to see the changes",Toast.LENGTH_SHORT).show();
+        onBackPressed();
     }
 }
