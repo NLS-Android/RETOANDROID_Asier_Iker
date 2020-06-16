@@ -22,7 +22,13 @@ import com.ciber.retoandroid_asier_iker.EditAllowanceActivity;
 import com.ciber.retoandroid_asier_iker.OPAllowances;
 import com.ciber.retoandroid_asier_iker.R;
 import com.ciber.retoandroid_asier_iker.SQLLite;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SeeAllowancesFragment extends Fragment implements OPAllowances {
 
@@ -45,19 +51,24 @@ public class SeeAllowancesFragment extends Fragment implements OPAllowances {
         RecyclerView recyclerView= v.findViewById(R.id.idrecyclerviewAllowance);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         recyclerView.setAdapter(allowanceAdapter);
-        showAllowances();
+        try {
+            showAllowances();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return v;
     }
 
-    public void showAllowances() {
+    public void showAllowances() throws ParseException {
         SQLiteDatabase sqLiteDatabase = sqlLite.getReadableDatabase();
         Allowance allowance = null;
+
         /***/
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT code, allowancename, allowancestartdate, allowanceenddate, allowancelocation, allowancetransport, allowancetravelleddistances, " +
                 "allowancetollamount, allowanceparkingamount, " +
                 "CASE " +
-                "WHEN allowancelocation = 'Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3) + ((allowanceenddate-allowancestartdate)*60) " +
-                "WHEN allowancelocation = 'Out Of Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3) + ((allowanceenddate-allowancestartdate)*100)  " +
+                "WHEN allowancelocation = 'Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3)  + (daysbetweendates*60) " +
+                "WHEN allowancelocation = 'Out Of Europe' THEN (allowanceparkingamount+allowancetollamount)+(allowancetravelleddistances*0.3)  + (daysbetweendates*100)  " +
                 "ELSE 0 " +
                 "END " +
                 "FROM allowances",null);

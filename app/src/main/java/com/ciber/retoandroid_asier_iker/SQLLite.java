@@ -13,7 +13,7 @@ public class SQLLite extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS expenses(code 'int', expensename 'varchar',expensedate 'varchar', expenseamount 'varchar')");
         db.execSQL("CREATE TABLE IF NOT EXISTS allowances(code 'int', allowancename 'varchar',allowancestartdate 'varchar', allowanceenddate 'varchar', allowancelocation 'varchar', " +
-                "allowancetransport 'varchar', allowancetravelleddistances 'varchar', allowancetollamount 'varchar', allowanceparkingamount 'varchar')");
+                "allowancetransport 'varchar', allowancetravelleddistances 'varchar', allowancetollamount 'varchar', allowanceparkingamount 'varchar', daysbetweendates 'int')");
         
     }
     @Override

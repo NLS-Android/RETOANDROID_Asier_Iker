@@ -15,7 +15,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.ciber.retoandroid_asier_iker.R;
 import com.ciber.retoandroid_asier_iker.SQLLite;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Period;
 import java.util.Calendar;
+import java.util.Date;
 
 public class AllowancesFragment extends Fragment {
 
@@ -94,6 +100,8 @@ public class AllowancesFragment extends Fragment {
         SQLLite sqlLite = new SQLLite(getActivity(), "allowances", null, 1);
         SQLiteDatabase sqLiteDatabase = sqlLite.getWritableDatabase();
 
+
+
         int code = Integer.parseInt(txtAllowanceCode.getText().toString());
         String allowancename = txtAllowanceName.getText().toString();
         String allowancestartdate = txtAllowanceStartDate.getText().toString();
@@ -103,6 +111,32 @@ public class AllowancesFragment extends Fragment {
         String allowancetravelleddistances = txtTravelledDistances.getText().toString();
         String allowancetollamount = txtTollAmount.getText().toString();
         String allowanceparkingamount = txtParkingAmount.getText().toString();
+
+
+        //Specify the data format
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String StartDate = txtAllowanceStartDate.getText().toString();
+        String EndDate = txtAllowanceEndDate.getText().toString();
+        long diff = 0;
+        try {
+            //Convert to Date
+            Date startDate = df.parse(StartDate);
+            Calendar c1 = Calendar.getInstance();
+            c1.setTime(startDate);
+
+            //Convert to Date
+            Date endDate = df.parse(EndDate);
+            Calendar c2 = Calendar.getInstance();
+            c2.setTime(endDate);
+
+            long ms1 = c1.getTimeInMillis();
+            long ms2 = c2.getTimeInMillis();
+            diff = ms2 - ms1;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        int daysbetweendates = (int) (diff / (24 * 60 * 60 * 1000));
 
         ContentValues values = new ContentValues();
         values.put("code", code);
@@ -114,6 +148,7 @@ public class AllowancesFragment extends Fragment {
         values.put("allowancetravelleddistances",allowancetravelleddistances);
         values.put("allowancetollamount",allowancetollamount);
         values.put("allowanceparkingamount",allowanceparkingamount);
+        values.put("daysbetweendates",daysbetweendates);
 
         Long result = sqLiteDatabase.insert("allowances", null, values);
         Toast.makeText(getActivity(), "Result: " + result, Toast.LENGTH_SHORT).show();
