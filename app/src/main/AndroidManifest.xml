@@ -3,6 +3,7 @@
     package="com.ciber.retoandroid_asier_iker">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"

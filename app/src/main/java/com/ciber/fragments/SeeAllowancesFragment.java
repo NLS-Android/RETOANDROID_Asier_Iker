@@ -1,6 +1,5 @@
 package com.ciber.fragments;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,22 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-import com.ciber.fragments.SeeAllowancesFragment;
 import com.ciber.retoandroid_asier_iker.Allowance;
 import com.ciber.retoandroid_asier_iker.AllowanceAdapter;
 import com.ciber.retoandroid_asier_iker.EditAllowanceActivity;
 import com.ciber.retoandroid_asier_iker.OPAllowances;
 import com.ciber.retoandroid_asier_iker.R;
 import com.ciber.retoandroid_asier_iker.SQLLite;
-
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class SeeAllowancesFragment extends Fragment implements OPAllowances {
 
@@ -39,7 +31,6 @@ public class SeeAllowancesFragment extends Fragment implements OPAllowances {
 
     public SeeAllowancesFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,7 +54,6 @@ public class SeeAllowancesFragment extends Fragment implements OPAllowances {
         SQLiteDatabase sqLiteDatabase = sqlLite.getReadableDatabase();
         Allowance allowance = null;
 
-        /***/
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT code, allowancename, allowancestartdate, allowanceenddate, allowancelocation, allowancetransport, allowancetravelleddistances, " +
                 "allowancetollamount, allowanceparkingamount, " +
                 "CASE " +
@@ -72,7 +62,7 @@ public class SeeAllowancesFragment extends Fragment implements OPAllowances {
                 "ELSE 0 " +
                 "END " +
                 "FROM allowances",null);
-        /***/
+
         while (cursor.moveToNext()) {
             allowance = new Allowance();
             allowance.setCode(cursor.getInt(0));

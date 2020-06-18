@@ -22,7 +22,6 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:title="NlSecurity"></androidx.appcompat.widget.Toolbar>
-
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -34,7 +33,6 @@
         app:itemBackground="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/main_menu">
-
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
