@@ -3,7 +3,7 @@
     package="com.ciber.retoandroid_asier_iker">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".EditAllowanceActivity"></activity>
+        <activity android:name=".CreditCardActivity"></activity>
+        <activity android:name=".EditAllowanceActivity" />
         <activity android:name=".EditExpensesActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".RegisterActivity" />
@@ -24,4 +25,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

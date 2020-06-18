@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.ciber.retoandroid_asier_iker.CreditCardActivity;
 import com.ciber.retoandroid_asier_iker.R;
 import io.card.payment.CardIOActivity;
 import io.card.payment.CreditCard;
@@ -18,7 +20,7 @@ public class CreditCardFragment extends Fragment {
     private static final int SCAN_RESULT = 13274384;
     private static final int MY_SCAN_REQUEST_CODE = 100;
     private TextView textViewCard, textViewDate;
-    private Button button_scan;
+    private Button button_scan, button_rest;
     private Object View;
 
     public CreditCardFragment() {
@@ -30,8 +32,16 @@ public class CreditCardFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_credit_card, container, false);
         textViewCard = (TextView) v.findViewById(R.id.textViewCard);
         textViewDate = (TextView) v.findViewById(R.id.textViewDate);
+        button_scan = (Button) v.findViewById(R.id.button_scan);
+        button_rest = (Button) v.findViewById(R.id.button_rest);
+        button_rest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent rest = new Intent(getActivity(), CreditCardActivity.class);
+                startActivity(rest);
+            }
+        });
         scanCard(v);
-
         return v;
     }
 
