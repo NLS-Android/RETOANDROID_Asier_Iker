@@ -6,5 +6,5 @@ import retrofit2.http.GET;
 
 public interface JsonPlaceHolderApi {
     @GET("user1")
-    Call<List<Post>> getPosts();
+    Call<Post> getSampleResponse();
 }

@@ -12,47 +12,42 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CreditCardActivity extends AppCompatActivity {
 
-    private TextView textView;
+    private TextView lastactive_eur, lastactive_int, card_europe, card_international, current_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_card);
+        lastactive_eur = (TextView)findViewById(R.id.lastactive_eur);
+        lastactive_int = (TextView)findViewById(R.id.lastactive_int);
+        card_europe = (TextView)findViewById(R.id.card_europe);
+        card_international = (TextView)findViewById(R.id.card_international);
+        current_card = (TextView)findViewById(R.id.current_card);
+        getSampleJsonResponse();
+    }
 
-        textView = findViewById(R.id.text_view_result);
-
+    private void getSampleJsonResponse(){
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.2.2:4000/infocards/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+        Call<Post> call = jsonPlaceHolderApi.getSampleResponse();
 
-        Call<List<Post>> listCall = jsonPlaceHolderApi.getPosts();
-
-        listCall.enqueue(new Callback<List<Post>>() {
+        call.enqueue(new Callback<Post>() {
             @Override
-            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-                if (!response.isSuccessful()) {
-                    textView.setText("Code " + response.code());
-                    return;
-                }
-
-                List<Post> posts = response.body();
-
-                for (Post post : posts) {
-                    String content = "";
-                    content += "lastactive_eur: " + post.getLastactive_eur() + "\n";
-                    content += "lastactive_int: " + post.getLastactive_int() + "\n";
-                    content += "card_europe: " + post.getCard_europe() + "\n";
-                    content += "card_international: " + post.getCard_international() + "\n";
-                    content += "current_card: " + post.getCurrent_card() + "\n";
-                    textView.append(content);
+            public void onResponse(Call<Post> call, Response<Post> response) {
+                if (response.isSuccessful()){
+                    lastactive_eur.setText("lastactive_eur: " +response.body().getLastactiveEur() + "\n");
+                    lastactive_int.setText("lastactive_int: " +response.body().getLastactiveInt() + "\n");
+                    card_europe.setText("card_europe: " +response.body().getCardEurope() + "\n");
+                    card_international.setText("card_international: " +response.body().getCardInternational() + "\n");
+                    current_card.setText("current_card: " +response.body().getCurrentCard() + "\n");
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
-                textView.setText(t.getMessage());
+            public void onFailure(Call<Post> call, Throwable t) {
+
             }
         });
     }
