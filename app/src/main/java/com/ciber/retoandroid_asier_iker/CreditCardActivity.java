@@ -21,7 +21,7 @@ public class CreditCardActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.text_view_result);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://localhost:4000/infocards/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.2.2:4000/infocards/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
