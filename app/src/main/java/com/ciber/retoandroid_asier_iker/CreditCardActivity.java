@@ -37,10 +37,10 @@ public class CreditCardActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {
                 if (response.isSuccessful()){
-                    lastactive_eur.setText("lastactive_eur: " +response.body().getLastactiveEur() + "\n");
-                    lastactive_int.setText("lastactive_int: " +response.body().getLastactiveInt() + "\n");
-                    card_europe.setText("card_europe: " +response.body().getCardEurope() + "\n");
-                    card_international.setText("card_international: " +response.body().getCardInternational() + "\n");
+                    lastactive_eur.setText(response.body().getLastactiveEur() + "\n");
+                    lastactive_int.setText(response.body().getLastactiveInt() + "\n");
+                    card_europe.setText(response.body().getCardEurope() + "\n");
+                    card_international.setText(response.body().getCardInternational() + "\n");
                     current_card.setText("current_card: " +response.body().getCurrentCard() + "\n");
                 }
             }
