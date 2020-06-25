@@ -41,7 +41,7 @@ public class CreditCardActivity extends AppCompatActivity {
                     lastactive_int.setText(response.body().getLastactiveInt() + "\n");
                     card_europe.setText(response.body().getCardEurope() + "\n");
                     card_international.setText(response.body().getCardInternational() + "\n");
-                    current_card.setText("current_card: " +response.body().getCurrentCard() + "\n");
+                    current_card.setText("CURRENT CARD: "+response.body().getCurrentCard() + "\n");
                 }
             }
 

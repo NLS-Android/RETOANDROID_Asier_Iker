@@ -27,8 +27,7 @@ public class AllowancesFragment extends Fragment {
     private Spinner spinnerLocation, spinnerTransport;
     private Button btnAddAllowance;
 
-    public AllowancesFragment() {
-    }
+    public AllowancesFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

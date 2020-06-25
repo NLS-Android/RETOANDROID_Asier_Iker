@@ -20,7 +20,7 @@ import java.util.Calendar;
 public class EditExpensesActivity extends AppCompatActivity {
 
     private ExpenseAdapter expenseAdapter;
-    private EditText expense_code_edit, expense_name_edit, expense_date_edit, amount_expense_edit;
+    private EditText expense_code_edit, expense_name_edit, expense_date_edit, amount_expense_edit, department_code_edit, proyect_code_edit;
     private Expense expense;
     private Button button_expenses_edit;
 
@@ -33,6 +33,8 @@ public class EditExpensesActivity extends AppCompatActivity {
         expense_name_edit = findViewById(R.id.expense_name_edit);
         expense_date_edit = findViewById(R.id.expense_date_edit);
         amount_expense_edit = findViewById(R.id.amount_expense_edit);
+        department_code_edit = findViewById(R.id.department_code_edit);
+        proyect_code_edit = findViewById(R.id.proyect_code_edit);
         button_expenses_edit = findViewById(R.id.button_expenses_edit);
         button_expenses_edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +69,8 @@ public class EditExpensesActivity extends AppCompatActivity {
         expense_name_edit.setText(expense.getExpenseName());
         expense_date_edit.setText(expense.getExpenseDate());
         amount_expense_edit.setText(expense.getExpenseAmount());
+        department_code_edit.setText(String.valueOf(expense.getDepartmentCode()));
+        proyect_code_edit.setText(String.valueOf(expense.getProyectCode()));
     }
 
     private void EditData(View v) {
@@ -76,12 +80,17 @@ public class EditExpensesActivity extends AppCompatActivity {
         String expense_name = expense_name_edit.getText().toString();
         String expense_date = expense_date_edit.getText().toString();
         String expense_amount = amount_expense_edit.getText().toString();
+        Integer department_code = Integer.parseInt(department_code_edit.getText().toString());
+        Integer proyect_code = Integer.parseInt(proyect_code_edit.getText().toString());
+
 
         ContentValues values = new ContentValues();
         values.put("code", code);
         values.put("expensename", expense_name);
         values.put("expensedate", expense_date);
         values.put("expenseamount", expense_amount);
+        values.put("departmentcode", department_code);
+        values.put("proyectcode", proyect_code);
 
         sqLiteDatabase.update("expenses", values, "code="+code,null);
         sqLiteDatabase.close();

@@ -18,11 +18,10 @@ import java.util.Calendar;
 
 public class ExpensesFragment extends Fragment {
 
-    private EditText txtExpenseName, txtExpenseDate, txtExpenseAmount, txtCodeExpense;
+    private EditText txtExpenseName, txtExpenseDate, txtExpenseAmount, txtCodeExpense, txtProyectCode, txtDepartmentCode;
     private Button btnAddExpense;
 
-    public ExpensesFragment() {
-    }
+    public ExpensesFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,6 +30,8 @@ public class ExpensesFragment extends Fragment {
         txtExpenseName = (EditText) v.findViewById(R.id.expense_name);
         txtExpenseDate = (EditText) v.findViewById(R.id.expense_date);
         txtExpenseAmount = (EditText) v.findViewById(R.id.amount_expense);
+        txtProyectCode = (EditText) v.findViewById(R.id.proyect_code);
+        txtDepartmentCode = (EditText) v.findViewById(R.id.department_code);
         btnAddExpense = (Button) v.findViewById(R.id.button_expenses);
         btnAddExpense.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,12 +73,16 @@ public class ExpensesFragment extends Fragment {
         String expensename = txtExpenseName.getText().toString();
         String expensedate = txtExpenseDate.getText().toString();
         String expenseamount = txtExpenseAmount.getText().toString();
+        String departmentcode = txtDepartmentCode.getText().toString();
+        String proyectcode = txtProyectCode.getText().toString();
 
         ContentValues values = new ContentValues();
         values.put("code", code);
         values.put("expensename",expensename);
         values.put("expensedate",expensedate);
         values.put("expenseamount",expenseamount);
+        values.put("departmentcode",departmentcode);
+        values.put("proyectcode",proyectcode);
 
         Long result = sqLiteDatabase.insert("expenses", null, values);
         Toast.makeText(getActivity(), "Result: " + result, Toast.LENGTH_SHORT).show();
@@ -101,5 +106,7 @@ public class ExpensesFragment extends Fragment {
         txtExpenseName.setText("");
         txtExpenseDate.setText("");
         txtExpenseAmount.setText("");
+        txtDepartmentCode.setText("");
+        txtProyectCode.setText("");
     }
 }

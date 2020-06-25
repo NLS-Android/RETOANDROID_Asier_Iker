@@ -6,18 +6,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.SearchView;
 import android.widget.Toast;
 import com.ciber.retoandroid_asier_iker.EditExpensesActivity;
 import com.ciber.retoandroid_asier_iker.Expense;
@@ -34,8 +28,7 @@ public class SeeExpensesFragment extends Fragment implements OPExpense {
     SQLLite sqlLite;
     private ExpenseAdapter expenseAdapter;
 
-    public SeeExpensesFragment() {
-    }
+    public SeeExpensesFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +41,6 @@ public class SeeExpensesFragment extends Fragment implements OPExpense {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         recyclerView.setAdapter(expenseAdapter);
         showExpenses();
-
         return v;
     }
 
@@ -62,6 +54,8 @@ public class SeeExpensesFragment extends Fragment implements OPExpense {
             expense.setExpenseName(cursor.getString(1));
             expense.setExpenseDate(cursor.getString(2));
             expense.setExpenseamount(cursor.getString(3));
+            expense.setDepartmentCode(cursor.getInt(4));
+            expense.setProyectCode(cursor.getInt(5));
             expenseAdapter.addExpense(expense);
         }
     }
@@ -107,5 +101,4 @@ public class SeeExpensesFragment extends Fragment implements OPExpense {
             Toast.makeText(getActivity(), "It could not be removed", Toast.LENGTH_SHORT).show();
         }
     }
-
 }

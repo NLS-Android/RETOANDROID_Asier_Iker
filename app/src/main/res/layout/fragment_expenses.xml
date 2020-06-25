@@ -48,6 +48,24 @@
         android:drawableLeft="@drawable/amount"
         android:paddingLeft="2dp"
         android:inputType="numberDecimal"/>
+    <EditText
+        android:id="@+id/department_code"
+        android:hint="@string/department_code"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/department"
+        android:paddingLeft="2dp"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/proyect_code"
+        android:hint="@string/proyect_code"
+        android:layout_width="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/proyect"
+        android:paddingLeft="2dp"
+        android:inputType="number"/>
     <Button
         android:id="@+id/button_expenses"
         android:layout_width="190dp"

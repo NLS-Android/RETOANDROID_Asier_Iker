@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.ciber.retoandroid_asier_iker.CreditCardActivity;
 import com.ciber.retoandroid_asier_iker.R;
 import io.card.payment.CardIOActivity;
@@ -23,9 +22,7 @@ public class CreditCardFragment extends Fragment {
     private Button button_scan, button_rest;
     private Object View;
 
-    public CreditCardFragment() {
-        // Required empty public constructor
-    }
+    public CreditCardFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,13 +44,9 @@ public class CreditCardFragment extends Fragment {
 
     public void scanCard(View v) {
         Intent scanIntent = new Intent(getActivity(), CardIOActivity.class);
-
-        // customize these values to suit your needs.
         scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true); // default: false
         scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CVV, false); // default: false
         scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_POSTAL_CODE, false); // default: false
-
-        // MY_SCAN_REQUEST_CODE is arbitrary and is only used within this activity.
         startActivityForResult(scanIntent, MY_SCAN_REQUEST_CODE);
     }
     @Override

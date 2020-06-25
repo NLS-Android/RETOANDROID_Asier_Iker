@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.ED_password);
         login = (Button) findViewById(R.id.button_login);
         register = (TextView) findViewById(R.id.TV_register);
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,11 +44,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (result == true) {
                     Intent HomePage = new Intent(LoginActivity.this, HomeActivity.class);
                     Toast.makeText(LoginActivity.this, "Succesfully Logged-In", Toast.LENGTH_SHORT).show();
-                    /***/
                     Bundle bundle = new Bundle();
                     bundle.putString("user",username.getText().toString().trim());
                     HomePage.putExtras(bundle);
-                    /***/
                     startActivity(HomePage);
                 } else {
                     Toast.makeText(LoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();

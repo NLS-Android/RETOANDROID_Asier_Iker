@@ -5,11 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +38,10 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.expenseV
         expenseView.txtExpenseNameShow.setText(expense.getExpenseName());
         expenseView.txtExpenseDateShow.setText(expense.getExpenseDate());
         expenseView.txtExpenseAmountShow.setText(expense.getExpenseAmount());
+        expenseView.txtDepartmentShow.setText(String.valueOf(expense.getDepartmentCode()));
+        expenseView.txtProyectShow.setText(String.valueOf(expense.getProyectCode()));
         expenseView.btnEdit.setOnClickListener(new EditEvent(expense));
         expenseView.btnDelete.setOnClickListener(new DeleteEvent(expense));
-
     }
 
     @Override
@@ -65,33 +63,28 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.expenseV
         private Expense expense;
         public EditEvent(Expense expense) {
             this.expense = expense;
-
         }
         @Override
         public void onClick(View view) {
             opExpense.OptionEdit(expense);
-
         }
     }
 
     class DeleteEvent implements View.OnClickListener {
 
         private Expense expense;
-
         public DeleteEvent(Expense expense) {
             this.expense = expense;
         }
-
         @Override
         public void onClick(View view) {
             opExpense.OptionDelete(expense);
-
         }
     }
 
     public class expenseView extends RecyclerView.ViewHolder{
 
-        private TextView txtcodeShow, txtExpenseNameShow, txtExpenseDateShow, txtExpenseAmountShow;
+        private TextView txtcodeShow, txtExpenseNameShow, txtExpenseDateShow, txtExpenseAmountShow, txtDepartmentShow, txtProyectShow;
         private Button btnEdit, btnDelete;
 
         public expenseView(View itemView) {
@@ -100,9 +93,10 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.expenseV
             txtExpenseNameShow = itemView.findViewById(R.id.txtExpenseName);
             txtExpenseDateShow = itemView.findViewById(R.id.txtDateShow);
             txtExpenseAmountShow = itemView.findViewById(R.id.txtAmountShow);
+            txtDepartmentShow = itemView.findViewById(R.id.txtDepartmentShow);
+            txtProyectShow = itemView.findViewById(R.id.txtProyectShow);
             btnEdit = itemView.findViewById(R.id.btnEdit);
             btnDelete = itemView.findViewById(R.id.btnDelete);
-
         }
     }
 }

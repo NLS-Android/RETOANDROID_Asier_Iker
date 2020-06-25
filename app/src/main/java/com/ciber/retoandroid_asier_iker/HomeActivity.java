@@ -3,13 +3,11 @@ package com.ciber.retoandroid_asier_iker;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.ciber.fragments.AboutFragment;
 import com.ciber.fragments.AllowancesFragment;
 import com.ciber.fragments.ConfigurationFragment;

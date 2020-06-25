@@ -8,15 +8,19 @@ public class Expense implements Serializable {
     private String expensename;
     private String expensedate;
     private String expenseamount;
+    private int departmentcode;
+    private int proyectcode;
 
     public Expense() {
     }
 
-    public Expense(int code, String expensename, String expensedate, String expenseamount) {
+    public Expense(int code, String expensename, String expensedate, String expenseamount, int departmentcode, int proyectcode) {
         this.code = code;
         this.expensename = expensename;
         this.expensedate = expensedate;
         this.expenseamount = expenseamount;
+        this.departmentcode = departmentcode;
+        this.proyectcode = proyectcode;
     }
 
     public int getCode() {
@@ -45,6 +49,20 @@ public class Expense implements Serializable {
     }
     public void setExpenseamount(String expenseamount) {
         this.expenseamount = expenseamount;
+    }
+
+    public int getDepartmentCode() {
+        return departmentcode;
+    }
+    public void setDepartmentCode(int departmentcode) {
+        this.departmentcode = departmentcode;
+    }
+
+    public int getProyectCode() {
+        return proyectcode;
+    }
+    public void setProyectCode(int proyectcode) {
+        this.proyectcode = proyectcode;
     }
 
 }

@@ -41,6 +41,8 @@
     <string name="edit_expenses">EDIT EXPENSE</string>
     <string name="edit_allowance">EDIT ALLOWANCE</string>
     <string name="button_add_image">ADD IMAGE</string>
+    <string name="department_code">Department Code</string>
+    <string name="proyect_code">Proyect Code</string>
     <!-- CREDITCARD -->
 
     <string-array name="location">

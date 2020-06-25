@@ -1,6 +1,5 @@
 package com.ciber.retoandroid_asier_iker;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.ciber.retoandroid_asier_iker.R;
 import java.io.InputStream;
 
 
@@ -82,7 +80,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
     public void openGallery(View view) {
         Intent interntIMG = new Intent(Intent.ACTION_GET_CONTENT);

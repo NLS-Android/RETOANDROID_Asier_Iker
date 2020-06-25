@@ -1,8 +1,6 @@
 package com.ciber.fragments;
 
 import android.Manifest;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -12,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
-
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -21,10 +17,7 @@ import com.ciber.retoandroid_asier_iker.R;
 
 public class AboutFragment extends Fragment {
 
-    public AboutFragment() {
-        // Required empty public constructor
-
-    }
+    public AboutFragment() { }
     private Button Bcall, Bgeo;
 
     @Override
@@ -55,12 +48,10 @@ public class AboutFragment extends Fragment {
                 ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             }
         }
-
     }
 
     public void opencall(){
-        try
-        {
+        try {
             if(Build.VERSION.SDK_INT > 22) {
                 if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE}, 101);
